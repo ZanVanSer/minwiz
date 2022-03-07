@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d943ad50-997e-4a11-bf05-8b76ad36415f/deploy-status)](https://app.netlify.com/sites/minwiz/deploys)
+
 
 # MinWiz - Minimal starter kit for under 2 KB sites
 
