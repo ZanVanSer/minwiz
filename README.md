@@ -1,6 +1,6 @@
 
 
-# lightweight website under 2 KB based on MinWiz starter kit [MinWiz.com](https://minwiz.com).
+# lightweight website under 2 KB based on MinWiz
 
 ## Getting started
 
