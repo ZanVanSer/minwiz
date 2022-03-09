@@ -103,7 +103,7 @@ table {
 }
 pre code {
   background: #eee;
+  display: block;
   padding: 30px;
-  max-width: 36em;
   text-align: justify;
 }
