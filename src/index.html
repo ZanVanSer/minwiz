@@ -88,8 +88,7 @@
             <li><b>The Number of instances</b> can be used to select the number of instances you want to create. 1, 2, 3, etc. 
                 (don't forget about the number of free one month usage in 750 years). All other parameters are defaulted, 
                 but look for <b>IAM Role</b> and select the previously created role and the next important parameter <b>User Data</b>:</li>
-<pre>
- <code>
+<p>
  #!/bin/bash
 
  mkdir /tmp/ssm
@@ -105,8 +104,8 @@
  sudo systemctl enable amazon-ssm-agent
                         
  sudo snap install docker
-                    </code>
-                  </pre>
+</p>
+                    
             <li>Next click Review and Launch --- Launch --- Procceed without a key pair --- I acknowledge that without a key pair... --- Launch Instance</li>
             <li>Go to the board via <b>View Instance</b>. It is necessary to wait for 2 or 3 seconds, until the instance will be configured.</li>
           </ul>
@@ -116,12 +115,10 @@
               
       </ol>
       Example: <br>
-<pre>
-<code>
+<p>
 docker run -d --rm alpine/bombardier -c 1000 -
 d 600000h https://lenta.ru
-</code>
-</pre>
+</p>
       After the target stops responding through the anonimous browser, you can terminate the instance or go to the next target. 
       Check if the container is running: docker ps -a command. Stop docker container: docker stop {id container}.
 

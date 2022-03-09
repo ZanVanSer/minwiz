@@ -101,14 +101,4 @@ p {
 table {
   border-collapse:collapse;
 }
-pre code {
-  background: #eee;
-  display: block;
-  font: 18px -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.4;
-  color: var(--tc);
-  max-width: 36em;
-  margin: 0 auto;
-  padding: 0 0.7em;
-  text-align: justify;
-}
+
