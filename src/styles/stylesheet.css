@@ -102,8 +102,7 @@ table {
   border-collapse:collapse;
 }
 pre code {
-  background-color: #eee;
-  display: block;
+  background: #eee;
   padding: 30px;
   max-width: 36em;
   text-align: justify;
