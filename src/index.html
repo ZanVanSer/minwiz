@@ -89,21 +89,21 @@
                 (don't forget about the number of free one month usage in 750 years). All other parameters are defaulted, 
                 but look for <b>IAM Role</b> and select the previously created role and the next important parameter <b>User Data</b>:</li>
 <p>
- #!/bin/bash
+ #!/bin/bash <br>
 
- mkdir /tmp/ssm
+ mkdir /tmp/ssm <br>
                         
- cd /tmp/ssm
+ cd /tmp/ssm <br>
                         
- wget s3.amazonaws.com/...​md64/amazon-ssm-agent.deb
+ wget s3.amazonaws.com/...​md64/amazon-ssm-agent.deb <br>
                         
- sudo dpkg -i amazon-ssm-agent.deb
+ sudo dpkg -i amazon-ssm-agent.deb <br>
                         
- sudo start amazon-ssm-agent
+ sudo start amazon-ssm-agent <br>
                         
- sudo systemctl enable amazon-ssm-agent
+ sudo systemctl enable amazon-ssm-agent <br>
                         
- sudo snap install docker
+ sudo snap install docker <br>
 </p>
                     
             <li>Next click Review and Launch --- Launch --- Procceed without a key pair --- I acknowledge that without a key pair... --- Launch Instance</li>
