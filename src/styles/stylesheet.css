@@ -95,9 +95,17 @@ nav a {
 }
 p {
     margin: 10px 0;
-    padding: 5px 30px;
-    border: 1px solid #999;
+    padding: 5px 0;
+
 }
 table {
   border-collapse:collapse;
+}
+pre code {
+  background-color: #eee;
+  display: block;
+  padding: 30px;
+}
+img {
+  margin: 20px 0px;
 }

