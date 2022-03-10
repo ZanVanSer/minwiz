@@ -103,4 +103,6 @@ table {
   border-collapse:collapse;
 }
 
-
+.blog {
+  list-style: square;
+}
